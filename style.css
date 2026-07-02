@@ -1,7 +1,6 @@
-/* NETAX eCard v2.7 precision-clean
-   - 중복 CSS 정리
-   - 하단 여백만 미세 축소
-   - 주요 서비스/경력 텍스트 자간 완화
+/* NETAX eCard v2.8 visible-tune
+   - 하단 여백 0px로 명확히 축소
+   - 서비스/신뢰영역 자간을 눈에 보이게 완화
 */
 
 :root{
@@ -30,7 +29,7 @@ body{
   width:min(100%,430px);
   margin:0 auto;
   background:var(--card);
-  padding:20px 24px 8px; /* v2.7: bottom 14px -> 8px */
+  padding:20px 24px 0; /* v2.8: bottom 8px -> 0 */
 }
 
 .top{text-align:center}
@@ -101,7 +100,7 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   font-size:14.3px;
   line-height:1.12;
   font-weight:800;
-  letter-spacing:-.02em; /* v2.7: -0.04em -> -0.02em */
+  letter-spacing:.03em; /* v2.8: 하단 텍스트 자간 확대 */
 }
 
 .trust{padding-top:6px;text-align:center;color:var(--navy)}
@@ -110,9 +109,9 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   font-size:14.6px;
   line-height:1.12;
   font-weight:780;
-  letter-spacing:-.02em; /* v2.7: -0.04em -> -0.02em */
+  letter-spacing:.03em; /* v2.8: 하단 텍스트 자간 확대 */
 }
-.trust .sub-career{margin-bottom:3px;letter-spacing:-.01em}
+.trust .sub-career{margin-bottom:3px;letter-spacing:.02em}
 
 .sheet-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);display:flex;align-items:flex-end;justify-content:center;z-index:999}
 .sheet-backdrop[hidden]{display:none}
@@ -129,7 +128,7 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
 }
 
 @media(max-height:760px){
-  .ecard{padding:11px 22px 5px} /* v2.7: bottom 8px -> 5px */
+  .ecard{padding:11px 22px 0} /* v2.8: bottom 5px -> 0 */
   .logo{width:min(56%,230px)}
   .logo-wrap{margin-bottom:3px}
   .company{font-size:19px}
@@ -145,14 +144,14 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   .services{padding:6px 0 5px}
   .section-title{margin-bottom:3px;gap:8px}
   .section-title strong{font-size:16.4px}
-  .services p{font-size:14px;line-height:1.1;margin:1px 0;letter-spacing:-.02em}
+  .services p{font-size:14px;line-height:1.1;margin:1px 0;letter-spacing:.03em}
   .trust{padding-top:5px}
-  .trust p{font-size:14.3px;line-height:1.1;letter-spacing:-.02em}
-  .trust .sub-career{margin-bottom:2px;letter-spacing:-.01em}
+  .trust p{font-size:14.3px;line-height:1.1;letter-spacing:.03em}
+  .trust .sub-career{margin-bottom:2px;letter-spacing:.02em}
 }
 
 @media(max-height:700px){
-  .ecard{padding:9px 20px 4px} /* v2.7: bottom 7px -> 4px */
+  .ecard{padding:9px 20px 0} /* v2.8: bottom 4px -> 0 */
   .logo{width:min(53%,215px)}
   .company{font-size:18.4px}
   h1{font-size:24.8px;margin-top:3px}
