@@ -112,29 +112,38 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
 .contact .row:last-child{margin-bottom:0}
 
 .services{
+  flex:1 1 auto; /* 제목 삭제로 생긴 여유 공간을 여기서 직접 흡수 (버튼 간격이 아니라 이 영역이 커짐) */
   padding:7px 0 6px;
   text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
-.section-title{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:3px;color:var(--navy)}
-.section-title span{color:var(--gold-text);font-size:15px;font-weight:900}
-.section-title strong{font-size:17px;font-weight:900;letter-spacing:-.04em}
 .services p{
-  margin:1px 0;
-  font-size:14.3px;
-  line-height:1.12;
+  margin:3px 0;
+  font-size:16.4px;
+  line-height:1.22;
   font-weight:800;
   letter-spacing:.05em; /* v2.9: 자간 확장 */
 }
 
-.trust{padding-top:6px;text-align:center;color:var(--navy)}
+.trust{
+  flex:1 1 auto;
+  padding-top:6px;
+  text-align:center;
+  color:var(--navy);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
 .trust p{
   margin:0;
-  font-size:14.6px;
-  line-height:1.12;
+  font-size:16.8px;
+  line-height:1.2;
   font-weight:780;
   letter-spacing:.05em; /* v2.9: 자간 확장 */
 }
-.trust .sub-career{margin-bottom:3px;letter-spacing:-.01em}
+.trust .sub-career{margin-bottom:5px;letter-spacing:-.01em}
 
 .sheet-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.32);display:flex;align-items:flex-end;justify-content:center;z-index:999}
 .sheet-backdrop[hidden]{display:none}
@@ -165,12 +174,10 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   .row.address{min-height:39px}
   .row.address span{font-size:13.3px;line-height:.82}
   .services{padding:6px 0 5px}
-  .section-title{margin-bottom:3px;gap:8px}
-  .section-title strong{font-size:16.4px}
-  .services p{font-size:14px;line-height:1.1;margin:1px 0;letter-spacing:.05em}
+  .services p{font-size:15.6px;line-height:1.2;margin:2px 0;letter-spacing:.05em}
   .trust{padding-top:5px}
-  .trust p{font-size:14.3px;line-height:1.1;letter-spacing:.05em}
-  .trust .sub-career{margin-bottom:2px;letter-spacing:-.01em}
+  .trust p{font-size:16px;line-height:1.18;letter-spacing:.05em}
+  .trust .sub-career{margin-bottom:4px;letter-spacing:-.01em}
 }
 
 @media(max-height:700px){
@@ -183,8 +190,8 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   .row span{font-size:14.4px}
   .row.address{min-height:37px}
   .row.address span{font-size:13px;line-height:.8}
-  .services p{font-size:13.6px}
-  .trust p{font-size:13.8px}
+  .services p{font-size:15px}
+  .trust p{font-size:15.3px}
 }
 
 @media (prefers-color-scheme: dark){
@@ -192,7 +199,7 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   html{background:#101413;color-scheme:dark}
   body{background:#101413;color:#e9e5dc}
   .ecard{background:#111615}
-  .company,h1,.section-title,.trust{color:#e9e5dc}
+  .company,h1,.trust{color:#e9e5dc}
   .tagline{color:#e9e5dc}
   .divider{background:#273246}
   .row{background:linear-gradient(180deg,#4a3100 0%,#332400 100%);border-color:rgba(200,162,68,.34);box-shadow:0 0 0 1px rgba(200,162,68,.08),5px 7px 14px rgba(0,0,0,.22)}
