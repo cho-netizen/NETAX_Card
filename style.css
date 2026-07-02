@@ -17,10 +17,12 @@
   --button-text:#0d1b3d;
 }
 
-html{background:var(--bg);color-scheme:light}
+html{background:var(--bg);color-scheme:light;height:100%}
 *{box-sizing:border-box}
 body{
   margin:0;
+  min-height:100vh;
+  min-height:100dvh;
   background:var(--bg);
   color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
@@ -28,9 +30,13 @@ body{
 
 .ecard{
   width:min(100%,430px);
+  min-height:100vh;
+  min-height:100dvh;
   margin:0 auto;
   background:var(--card);
-  padding:20px 24px 0; /* v2.9: bottom 8px -> 0 */
+  padding:20px 24px 20px; /* v3.0: 하단 여백은 버튼 간격 확장으로 흡수 */
+  display:flex;
+  flex-direction:column;
 }
 
 .top{text-align:center}
@@ -49,9 +55,14 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
 }
 
 .contact{
+  flex:1 1 auto;
   padding:7px 0;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:6px; /* 최소 버튼 간격, 남는 공간은 space-between이 채움 */
 }
 .row{
   width:100%;
@@ -60,7 +71,7 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   align-items:center;
   gap:10px;
   min-height:36px;
-  margin:0 0 6px;
+  margin:0;
   padding:5px 9px;
   border-radius:13px;
   border:1px solid rgba(169,126,43,.35);
@@ -129,14 +140,14 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
 }
 
 @media(max-height:760px){
-  .ecard{padding:11px 22px 0} /* v2.9: bottom 5px -> 0 */
+  .ecard{padding:11px 22px 12px} /* v3.0: 하단도 소량 여백 유지, 나머지는 버튼 간격이 흡수 */
   .logo{width:min(56%,230px)}
   .logo-wrap{margin-bottom:3px}
   .company{font-size:19px}
   h1{font-size:26px;margin-top:4px}
   .tagline{font-size:15.3px;margin:6px 0 8px;line-height:1.18;letter-spacing:-.07em}
   .contact{padding:6px 0}
-  .row{min-height:35px;margin-bottom:4px;padding:4px 8px;border-radius:12px}
+  .row{min-height:35px;padding:4px 8px;border-radius:12px}
   .row b{font-size:15.3px}
   .row span{font-size:14.8px;line-height:1.12}
   .row i{font-size:21.5px}
@@ -152,12 +163,12 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
 }
 
 @media(max-height:700px){
-  .ecard{padding:9px 20px 0} /* v2.9: bottom 4px -> 0 */
+  .ecard{padding:9px 20px 10px} /* v3.0: 하단도 소량 여백 유지, 나머지는 버튼 간격이 흡수 */
   .logo{width:min(53%,215px)}
   .company{font-size:18.4px}
   h1{font-size:24.8px;margin-top:3px}
   .tagline{font-size:14.8px;margin:5px 0 6px}
-  .row{min-height:33px;margin-bottom:3px;padding:3px 8px}
+  .row{min-height:33px;padding:3px 8px}
   .row span{font-size:14.4px}
   .row.address{min-height:37px}
   .row.address span{font-size:13px;line-height:.8}
