@@ -23,6 +23,9 @@ body{
   margin:0;
   min-height:100vh;
   min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background:var(--bg);
   color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
@@ -30,8 +33,8 @@ body{
 
 .ecard{
   width:min(100%,430px);
-  min-height:100vh;
-  min-height:100dvh;
+  height:min(100vh,900px);
+  height:min(100dvh,900px); /* 실제 폰 화면은 꽉 채우되, 데스크톱 창처럼 비정상적으로 긴 화면은 900px에서 상한 */
   margin:0 auto;
   background:var(--card);
   padding:20px 24px 20px; /* v3.0: 하단 여백은 버튼 간격 확장으로 흡수 */
@@ -54,8 +57,13 @@ h1{margin:5px 0 0;color:var(--deep);font-size:26.4px;line-height:1.1;font-weight
   white-space:nowrap;
 }
 
+.flex-spacer{
+  flex:1 1 0%;
+  min-height:0;
+}
+
 .contact{
-  flex:1 1 auto;
+  flex:6 1 auto; /* 버튼 사이 간격 6칸과 동일한 비중으로, 위/아래 여백 스페이서와 같은 크기만큼 늘어남 */
   padding:7px 0;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
