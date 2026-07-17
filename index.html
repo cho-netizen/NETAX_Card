@@ -1,54 +1,71 @@
-<!-- VERSION: NETAX eCard v1.0 -->
+
+@@ -1,9 +1,18 @@
+<!-- VERSION: NETAX eCard v3.3 -->
 <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Analytics(GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CARDXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CARDXXXXXX');
+  </script>
   <title>조종호 세무사 | 이음세무컨설팅 NETAX</title>
-  <meta name="description" content="이음세무컨설팅 NETAX 조종호 세무사 전자명함">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2a41'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23c9a227' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="ecard">
-    <header class="top">
-      <img class="logo" src="assets/netax-logo-reverse.png" alt="NETAX">
-      <div class="company">이음세무컨설팅</div>
-      <h1>조종호 세무사</h1>
-      <p class="tagline">상속준비와 자산승계의 든든한 파트너</p>
-    </header>
+  <meta name="description" content="상속준비와 자산승계의 든든한 파트너 · 국세청 37년 경력, 이음세무컨설팅 조종호 세무사">
+  <meta name="theme-color" content="#edf1f6" media="(prefers-color-scheme: light)">
+‎script.js‎
++17-2Lines changed: 17 additions & 2 deletions
+Original file line number	Diff line number	Diff line change
+@@ -2,6 +2,21 @@
+const KAKAO_CHANNEL_URL = "https://pf.kakao.com/_SixeWn";
+const KAKAO_CHAT_URL = "https://pf.kakao.com/_SixeWn/chat";
 
-    <section class="contact" aria-label="연락처">
-      <p>☎ 031-342-9354</p>
-      <p>📱 010-6341-9354</p>
-      <p>📠 0508-118-0935</p>
-      <p>✉ tax@netax.kr</p>
-      <p>🌐 netax.kr</p>
-      <p class="address">📍 안양시 동안구 시민대로 273<br>효성인텔리안 215호</p>
-    </section>
-
-    <section class="services" aria-label="주요 서비스">
-      <div class="section-title"><span>◇</span><strong>주요 서비스</strong><span>◇</span></div>
-      <p>상속세 · 증여세 · 양도소득세</p>
-      <p>세무조사 · 자료제출</p>
-      <p>불복청구 · 경정청구</p>
-    </section>
-
-    <section class="trust" aria-label="경력">
-      <p>국세청 37년 근무</p>
-      <p>(세무조사 25년)</p>
-      <p>동안양세무서장 역임</p>
-    </section>
-
-    <section class="action-zone" aria-label="실행 버튼">
-      <nav class="quick-actions">
-        <a class="quick call" href="tel:0313429354">전화</a>
-        <a class="quick mail" href="mailto:tax@netax.kr">이메일</a>
-        <a class="quick map" href="https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%95%88%EC%96%91%EC%8B%9C%20%EB%8F%99%EC%95%88%EA%B5%AC%20%EC%8B%9C%EB%AF%BC%EB%8C%80%EB%A1%9C%20273" target="_blank" rel="noopener noreferrer">길찾기</a>
-        <a class="quick save" href="assets/cho-jongho.vcf">연락처</a>
-      </nav>
-      <a class="reserve" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0J0BgLtP9pMfeK9OEnVxjBMrYt05lSv5vfI0As07EUH6TFbH0LNkxB_-ETsIjjZ53XSAsbI7gy" target="_blank" rel="noopener noreferrer">상담예약</a>
-    </section>
-  </main>
-</body>
-</html>
+// GA4 이벤트 전송 헬퍼 — 라벨 문구를 보고 이벤트명을 자동 분류
+function trackCardAction(key, label){
+  if (typeof gtag !== "function") return;
+  let eventName = "card_other";
+  if (label.includes("전화")) eventName = "click_phone";
+  else if (label.includes("문자")) eventName = "click_sms";
+  else if (label.includes("카카오")) eventName = "click_kakao";
+  else if (label.includes("이메일")) eventName = "click_email";
+  else if (label.includes("지도")) eventName = "click_map";
+  else if (label.includes("홈페이지")) eventName = "click_home";
+  else if (label.includes("연락처 저장")) eventName = "click_vcard";
+  else if (label.includes("복사")) eventName = "click_fax_copy";
+  gtag('event', eventName, { event_category:'engagement', event_label:`${key}:${label}` });
+}
+const sheets = {
+  "phone-office": {actions:[["전화하기","tel:0313429354"],["연락처 저장", VCARD]]},
+  "phone-mobile": {actions:[["전화하기","tel:01063419354"],["문자 보내기","sms:01063419354"],["연락처 저장", VCARD]]},
+@@ -29,25 +44,25 @@
+      const button = document.createElement("button");
+      button.type="button";
+      button.textContent=label;
+      button.addEventListener("click", async ()=>{ await action(); closeSheet(); });
+      button.addEventListener("click", async ()=>{ trackCardAction(key, label); await action(); closeSheet(); });
+      actionsEl.appendChild(button);
+    }else{
+      const a = document.createElement("a");
+      a.textContent=label;
+      a.href=action;
+      if(action.startsWith("http")){ a.target="_blank"; a.rel="noopener"; }
+      a.addEventListener("click",()=>setTimeout(closeSheet,160));
+      a.addEventListener("click",()=>{ trackCardAction(key, label); setTimeout(closeSheet,160); });
+      actionsEl.appendChild(a);
+    }
+  });
+  backdrop.hidden=false;
+}
+function closeSheet(){backdrop.hidden=true;actionsEl.innerHTML="";}
+cancelEl.addEventListener("click",closeSheet);
+backdrop.addEventListener("click",e=>{if(e.target===backdrop) closeSheet();});
+async function copyText(text){
+  try{ await navigator.clipboard.writeText(text); }
+  catch(e){
+    const ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+  }
+}
