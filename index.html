@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
+
   <!-- Google Analytics(GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CARDXXXXXX"></script>
   <script>
@@ -13,60 +13,81 @@
     gtag('js', new Date());
     gtag('config', 'G-CARDXXXXXX');
   </script>
-=======
->>>>>>> parent of 7754651 (1)
   <title>조종호 세무사 | 이음세무컨설팅 NETAX</title>
   <meta name="description" content="상속준비와 자산승계의 든든한 파트너 · 국세청 37년 경력, 이음세무컨설팅 조종호 세무사">
   <meta name="theme-color" content="#edf1f6" media="(prefers-color-scheme: light)">
-‎script.js‎
-+17-2Lines changed: 17 additions & 2 deletions
-Original file line number	Diff line number	Diff line change
-@@ -2,6 +2,21 @@
-const KAKAO_CHANNEL_URL = "https://pf.kakao.com/_SixeWn";
-const KAKAO_CHAT_URL = "https://pf.kakao.com/_SixeWn/chat";
+  <meta name="theme-color" content="#101413" media="(prefers-color-scheme: dark)">
+  <meta name="naver-site-verification" content="4528136d417c88f8379cbc39d13443924d18ae35" />
 
-// GA4 이벤트 전송 헬퍼 — 라벨 문구를 보고 이벤트명을 자동 분류
-function trackCardAction(key, label){
-  if (typeof gtag !== "function") return;
-  let eventName = "card_other";
-  if (label.includes("전화")) eventName = "click_phone";
-  else if (label.includes("문자")) eventName = "click_sms";
-  else if (label.includes("카카오")) eventName = "click_kakao";
-  else if (label.includes("이메일")) eventName = "click_email";
-  else if (label.includes("지도")) eventName = "click_map";
-  else if (label.includes("홈페이지")) eventName = "click_home";
-  else if (label.includes("연락처 저장")) eventName = "click_vcard";
-  else if (label.includes("복사")) eventName = "click_fax_copy";
-  gtag('event', eventName, { event_category:'engagement', event_label:`${key}:${label}` });
-}
-const sheets = {
-  "phone-office": {actions:[["전화하기","tel:0313429354"],["연락처 저장", VCARD]]},
-  "phone-mobile": {actions:[["전화하기","tel:01063419354"],["문자 보내기","sms:01063419354"],["연락처 저장", VCARD]]},
-@@ -29,25 +44,25 @@
-      const button = document.createElement("button");
-      button.type="button";
-      button.textContent=label;
-      button.addEventListener("click", async ()=>{ await action(); closeSheet(); });
-      button.addEventListener("click", async ()=>{ trackCardAction(key, label); await action(); closeSheet(); });
-      actionsEl.appendChild(button);
-    }else{
-      const a = document.createElement("a");
-      a.textContent=label;
-      a.href=action;
-      if(action.startsWith("http")){ a.target="_blank"; a.rel="noopener"; }
-      a.addEventListener("click",()=>setTimeout(closeSheet,160));
-      a.addEventListener("click",()=>{ trackCardAction(key, label); setTimeout(closeSheet,160); });
-      actionsEl.appendChild(a);
-    }
-  });
-  backdrop.hidden=false;
-}
-function closeSheet(){backdrop.hidden=true;actionsEl.innerHTML="";}
-cancelEl.addEventListener("click",closeSheet);
-backdrop.addEventListener("click",e=>{if(e.target===backdrop) closeSheet();});
-async function copyText(text){
-  try{ await navigator.clipboard.writeText(text); }
-  catch(e){
-    const ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
-  }
-}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="이음세무컨설팅 NETAX">
+  <meta property="og:title" content="조종호 세무사 · 이음세무컨설팅">
+  <meta property="og:description" content="자산승계의 든든한 파트너 · 국세청 37 년 경력">
+  <meta property="og:image" content="https://card.netax.kr/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://card.netax.kr/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="조종호 세무사 · 이음세무컨설팅">
+  <meta name="twitter:description" content="자산승계의 든든한 파트너 · 국세청 37 년 경력">
+  <meta name="twitter:image" content="https://card.netax.kr/assets/og-image.png">
+
+  <link rel="icon" href="assets/icon/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/icon/apple-touch-icon-dark.png">
+  <link rel="stylesheet" href="style.css?v=32">
+</head>
+<body>
+  <main class="ecard">
+    <header class="top">
+      <picture class="logo-wrap">
+        <source srcset="assets/logo/netax-wordmark-dark.png" media="(prefers-color-scheme: dark)">
+        <img class="logo" src="assets/logo/netax-wordmark-light.png" alt="NETAX">
+      </picture>
+      <div class="company">이음세무컨설팅</div>
+      <h1>조종호 세무사</h1>
+      <p class="tagline">상속준비와 자산승계의 든든한 파트너</p>
+    </header>
+
+    <div class="flex-spacer" aria-hidden="true"></div>
+    <div class="divider" aria-hidden="true"></div>
+    <div class="flex-spacer" aria-hidden="true"></div>
+
+    <section class="contact" aria-label="연락처">
+      <button class="row" type="button" data-sheet="phone-office" aria-label="사무실 전화, 031-342-9354"><b aria-hidden="true">T</b><span class="readable number">031-342-9354</span><i aria-hidden="true">›</i></button>
+      <button class="row" type="button" data-sheet="phone-mobile" aria-label="휴대전화, 010-6341-9354"><b aria-hidden="true">M</b><span class="readable number">010-6341-9354</span><i aria-hidden="true">›</i></button>
+      <button class="row" type="button" data-sheet="kakao" aria-label="카카오 상담"><b aria-hidden="true">K</b><span class="readable kakao">Kakao 상담</span><i aria-hidden="true">›</i></button>
+      <button class="row" type="button" data-sheet="fax" aria-label="팩스, 0508-118-0935"><b aria-hidden="true">F</b><span class="readable number">0508-118-0935</span><i aria-hidden="true">›</i></button>
+      <button class="row" type="button" data-sheet="email" aria-label="이메일, tax@netax.kr"><b aria-hidden="true">E</b><span class="readable email">tax@netax.kr</span><i aria-hidden="true">›</i></button>
+      <button class="row address" type="button" data-sheet="address" aria-label="주소, 안양시 동안구 시민대로 273 효성인텔리안 215호"><b aria-hidden="true">A</b><span><span class="addr-line1">안양시 동안구 시민대로&nbsp;273</span><br><em>효성인텔리안 215호</em></span><i aria-hidden="true">›</i></button>
+      <button class="row" type="button" data-sheet="home" aria-label="홈페이지, netax.kr"><b aria-hidden="true">H</b><span class="readable url">netax.kr</span><i aria-hidden="true">›</i></button>
+    </section>
+
+    <div class="flex-spacer" aria-hidden="true"></div>
+    <div class="divider" aria-hidden="true"></div>
+    <div class="flex-spacer" aria-hidden="true"></div>
+
+    <section class="services" aria-label="주요 서비스">
+      <p>상속세 · 증여세 · 양도소득세</p>
+      <p>세무조사 · 자료제출</p>
+      <p>불복청구 · 경정청구</p>
+    </section>
+
+    <div class="flex-spacer" aria-hidden="true"></div>
+    <div class="divider" aria-hidden="true"></div>
+    <div class="flex-spacer" aria-hidden="true"></div>
+
+    <section class="trust" aria-label="경력">
+      <p class="main-career">국세청 37년 근무</p>
+      <p class="sub-career">- 세무조사 25년 -</p>
+      <p class="office-career">동안양세무서장 역임</p>
+    </section>
+  </main>
+  <div class="sheet-backdrop" id="sheetBackdrop" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-label="동작 선택">
+      <div class="sheet-actions" id="sheetActions"></div>
+      <button class="sheet-cancel" type="button" id="sheetCancel">취소</button>
+    </div>
+  </div>
+  <script src="script.js?v=32"></script>
+</body>
+</html>
