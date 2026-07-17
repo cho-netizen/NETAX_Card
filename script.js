@@ -1,4 +1,3 @@
-@@ -1,7 +1,22 @@
 const VCARD = "assets/cho-jongho.vcf";
 const KAKAO_CHANNEL_URL = "https://pf.kakao.com/_SixeWn";
 const KAKAO_CHAT_URL = "https://pf.kakao.com/_SixeWn/chat";
